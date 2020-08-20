@@ -22,7 +22,8 @@ import javax.jmdns.ServiceInfo;
 import java.net.InetAddress;
 import java.nio.file.Paths;
 
-//Service Discovery
+//https://github.com/grpc/grpc-java/blob/v1.31.1/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java
+//Service Discovery 
 public class AccountServer {
 
   private static class AccountListener implements ServiceListener {
@@ -57,7 +58,7 @@ public class AccountServer {
         } catch (InterruptedException e) {
           e.printStackTrace(System.err);
         }
-        System.err.println("*** server shut down");
+        System.err.println("Shut Down Server");
       }
     });
   }
