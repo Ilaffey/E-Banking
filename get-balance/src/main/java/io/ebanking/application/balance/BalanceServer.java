@@ -116,21 +116,21 @@ public class BalanceServer {
       String password = req.getPassword();
 
       if(email == null || email.equals("")) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("").setEmail(email).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please Specify an Email Address").setEmail(email).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
 
       if(accountType == null || accountType.equals("")) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("").setAccountType(accountType).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please specify an Account Type").setAccountType(accountType).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
 
       if(password == null || password.equals("")) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please specify a password").setPassword(password).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please Specify a Password").setPassword(password).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -142,7 +142,7 @@ public class BalanceServer {
 
       String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$".toLowerCase();
       if(!email.matches(regex) || !validString(email)) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please specify a valid email address").setEmail(email).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please Specify a Valid Email Address").setEmail(email).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -150,7 +150,7 @@ public class BalanceServer {
 
       
       if(!validString(accountType)) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please specify a valid account type").setAccountType(accountType).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please Specify a Valid Account Type").setAccountType(accountType).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -158,7 +158,7 @@ public class BalanceServer {
       
       
       if(!validString(password)) {
-        BalanceReply reply = BalanceReply.newBuilder().setMessage("").setPassword(password).build();
+        BalanceReply reply = BalanceReply.newBuilder().setMessage("Please Specify a Valid Password").setPassword(password).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -191,7 +191,7 @@ public class BalanceServer {
             if(rowCount > 0 && password.equals(databasePassword)) {
               double displayedBalance = (((double) balance)/100);
 
-              BalanceReply reply = BalanceReply.newBuilder().setMessage("The balance is " + displayedBalance).setEmail(email).setAccountType(accountType).setBalance(displayedBalance).build();
+              BalanceReply reply = BalanceReply.newBuilder().setMessage("The Balance of the Account is " + displayedBalance).setEmail(email).setAccountType(accountType).setBalance(displayedBalance).build();
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
 
@@ -200,7 +200,7 @@ public class BalanceServer {
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             } else {
-              BalanceReply reply = BalanceReply.newBuilder().setMessage("Invalid login credentials").build();
+              BalanceReply reply = BalanceReply.newBuilder().setMessage("Invalid Login Credentials").build();
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             }
@@ -209,7 +209,7 @@ public class BalanceServer {
 
         } catch (Exception e) {
           System.out.println(e);
-          BalanceReply reply = BalanceReply.newBuilder().setMessage("An error occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
+          BalanceReply reply = BalanceReply.newBuilder().setMessage("An Error Occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
           responseObserver.onNext(reply);
           responseObserver.onCompleted();
         }
