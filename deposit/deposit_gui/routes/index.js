@@ -40,11 +40,11 @@ router.post('/deposit', function (req, res, next) {
       try {
         res.render('index', { title: 'E-banking Deposit Service', error: response.message });
       } catch (error) {
-        res.render('index', { title: 'E-banking Deposit Service', error: "Deposit Service is not available at the moment please try again later" });
+        res.render('index', { title: 'E-banking Deposit Service', error: "The Deposit Service is not available at the moment please try again later" });
       }
     });
   } catch (error) {
-    res.render('index', { title: 'E-banking Deposit Service', error: "Deposit Service is not available at the moment please try again later" });
+    res.render('index', { title: 'E-banking Deposit Service', error: "The Deposit Service is not available at the moment please try again later" });
   }
 
 
