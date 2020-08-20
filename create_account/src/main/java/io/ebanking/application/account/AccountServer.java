@@ -115,7 +115,7 @@ public class AccountServer {
       }
 
       if(accountType == null || accountType.equals("")) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify an Sccount Type").setAccountType(accountType).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify an Account Type").setAccountType(accountType).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
