@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.ebanking.application.account";
+option java_outer_classname = "AccountProto";
+option objc_class_prefix = "ACC";
+
+package account;
+
+// The greeting service definition.
+service Creater {
+  rpc createAccount (AccountRequest) returns (AccountReply) {}
+}
+
+// The request message containing the user's name.
+message AccountRequest {
+  string email = 1;
+  string account = 2;
+  string password = 3;
+}
+
+// The response message containing the greetings
+message AccountReply {
+  string message = 1;
+  string email = 2;
+  string accountType = 3;
+  string password = 4;
+}
