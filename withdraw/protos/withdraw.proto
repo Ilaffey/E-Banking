@@ -14,7 +14,7 @@ service Withdraw {
   rpc withdrawFunds (stream withdrawRequest) returns (withdrawReply) {}
 }
 
-// The request message containing the user's name.
+// The request message containing the user's account details.
 message withdrawRequest {
   string email = 1;
   string account = 2;
@@ -22,7 +22,7 @@ message withdrawRequest {
   double amount = 4;
 }
 
-// The response message 
+// The response message of account details and balance
 message withdrawReply {
   string message = 1;
   string email = 2;
