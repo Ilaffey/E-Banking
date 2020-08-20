@@ -24,6 +24,7 @@ import java.nio.file.Paths;
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.
+    Service Discovery
  */
 public class DepositServer {
 
@@ -82,12 +83,14 @@ public class DepositServer {
 
   /**
    * Main launches the server from the command line.
+      Service Registration
    */
   public static void main(String[] args) throws IOException, InterruptedException {
     final DepositServer server = new DepositServer();
-    
+    // Create JmDNS instance
     JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
+    // Register service -  Add service listener
     ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "deposit", 50051, "path=/");
     jmdns.registerService(serviceInfo);
     jmdns.addServiceListener("_http._tcp.local.", new DepositListener());

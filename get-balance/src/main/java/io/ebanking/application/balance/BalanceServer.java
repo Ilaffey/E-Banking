@@ -24,6 +24,7 @@ import java.nio.file.Paths;
 
 /**
  * Server that manages startup/shutdown of a {@code Inquirer} server.
+    Service Discovery
  */
 public class BalanceServer {
 
@@ -82,9 +83,11 @@ public class BalanceServer {
 
   /**
    * Main launches the server from the command line.
+      Service Registration
    */
   public static void main(String[] args) throws IOException, InterruptedException {
     final BalanceServer server = new BalanceServer();
+    // Create JmDNS instance
     JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
     ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "balance", 50071, "path=/");

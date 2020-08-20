@@ -22,7 +22,7 @@ import javax.jmdns.ServiceInfo;
 import java.net.InetAddress;
 import java.nio.file.Paths;
 
-
+//Service Discovery
 public class AccountServer {
 
   private static class AccountListener implements ServiceListener {
@@ -41,7 +41,7 @@ public class AccountServer {
 
   private Server server;
   private void start() throws IOException {
-
+      /* The port on which the server should run */
     int port = 50051;
     server = ServerBuilder.forPort(port)
         .addService(new CreaterImpl())
@@ -50,6 +50,7 @@ public class AccountServer {
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
+        // Use stderr here since the logger may have been reset by its JVM shutdown hook.
         System.err.println("*** shutting down gRPC server since JVM is shutting down");
         try {
           AccountServer.this.stop();
@@ -66,17 +67,24 @@ public class AccountServer {
       server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
     }
   }
-
+/**
+   * Await termination on the main thread since the grpc library uses daemon threads.
+   */
   private void blockUntilShutdown() throws InterruptedException {
     if (server != null) {
       server.awaitTermination();
     }
   }
-
+  /**
+   * Main launches the server from the command line.
+      Service Registration
+   */
   public static void main(String[] args) throws IOException, InterruptedException {
     final AccountServer server = new AccountServer();
+    // Create JmDNS instance
     JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
+    // Register service -  Add a service listener
     ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "account", 50051, "path=/");
     jmdns.registerService(serviceInfo);
     jmdns.addServiceListener("_http._tcp.local.", new AccountListener());
