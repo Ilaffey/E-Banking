@@ -35,21 +35,21 @@ function withdrawFunds(call, callback) {
 
       if (!account) {
         callback(null, {
-          message: `Please specify an account type`
+          message: `Please Specify an Account Type`
         });
         return;
       }
 
       if (!password) {
         callback(null, {
-          message: `Please specify a password`
+          message: `Please Specify a Password`
         });
         return;
       }
 
       if (!email) {
         callback(null, {
-          message: `Please specify an email address`
+          message: `Please Specify an Email Address`
         });
         return;
       }
@@ -119,7 +119,7 @@ function withdrawFunds(call, callback) {
             }
             let updatedBalance = ((user['balance'] - (amount * 100))) / 100
             callback(null, {
-              message: `The updated balance of the account is ${updatedBalance}`,
+              message: `The updated balance of the account is € ${updatedBalance}`,
               balance: updatedBalance,
               email: email,
               account: account
@@ -128,7 +128,7 @@ function withdrawFunds(call, callback) {
           });
 
         } else {
-          callback(null, { message: `Insuffient funds to withdraw ${amount}` });
+          callback(null, { message: `Insuffient funds to withdraw € ${amount}` });
           return
         }
 

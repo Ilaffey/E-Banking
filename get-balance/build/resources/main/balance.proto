@@ -7,9 +7,9 @@ option objc_class_prefix = "HLW";
 
 package balance;
 
-// The greeting service definition.
+// service definition.
 service Inquirer {
-  // Sends a greeting
+  
   rpc getBalance (BalanceRequest) returns (stream BalanceReply) {}
 }
 
@@ -20,7 +20,7 @@ message BalanceRequest {
   string password = 3;
 }
 
-// The response message containing the greetings
+// The response message 
 message BalanceReply {
   string message = 1;
   string email = 2;

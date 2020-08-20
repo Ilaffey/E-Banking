@@ -17,7 +17,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  * <pre>
- * The greeting service definition.
+ * service definition.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -107,16 +107,12 @@ public final class DepositGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static abstract class DepositImplBase implements io.grpc.BindableService {
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+    
     public void depositFunds(io.ebanking.application.deposit.DepositRequest request,
         io.grpc.stub.StreamObserver<io.ebanking.application.deposit.DepositReply> responseObserver) {
       asyncUnimplementedUnaryCall(getDepositFundsMethod(), responseObserver);
@@ -137,7 +133,7 @@ public final class DepositGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static final class DepositStub extends io.grpc.stub.AbstractAsyncStub<DepositStub> {
@@ -152,11 +148,7 @@ public final class DepositGrpc {
       return new DepositStub(channel, callOptions);
     }
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+    
     public void depositFunds(io.ebanking.application.deposit.DepositRequest request,
         io.grpc.stub.StreamObserver<io.ebanking.application.deposit.DepositReply> responseObserver) {
       asyncUnaryCall(
@@ -164,11 +156,7 @@ public final class DepositGrpc {
     }
   }
 
-  /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
-   */
+  
   public static final class DepositBlockingStub extends io.grpc.stub.AbstractBlockingStub<DepositBlockingStub> {
     private DepositBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -181,11 +169,7 @@ public final class DepositGrpc {
       return new DepositBlockingStub(channel, callOptions);
     }
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+  
     public io.ebanking.application.deposit.DepositReply depositFunds(io.ebanking.application.deposit.DepositRequest request) {
       return blockingUnaryCall(
           getChannel(), getDepositFundsMethod(), getCallOptions(), request);
@@ -194,7 +178,7 @@ public final class DepositGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static final class DepositFutureStub extends io.grpc.stub.AbstractFutureStub<DepositFutureStub> {
@@ -209,11 +193,7 @@ public final class DepositGrpc {
       return new DepositFutureStub(channel, callOptions);
     }
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+   
     public com.google.common.util.concurrent.ListenableFuture<io.ebanking.application.deposit.DepositReply> depositFunds(
         io.ebanking.application.deposit.DepositRequest request) {
       return futureUnaryCall(

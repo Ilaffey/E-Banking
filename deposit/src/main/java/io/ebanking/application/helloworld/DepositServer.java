@@ -23,7 +23,7 @@ import java.net.InetAddress;
 import java.nio.file.Paths;
 
 /**
- * Server that manages startup/shutdown of a {@code Greeter} server.
+ * Server that manages startup/shutdown of a server.
     Service Discovery
  */
 public class DepositServer {
@@ -207,7 +207,7 @@ public class DepositServer {
               double displayedBalance = (((double) balance+amount)/100);
 
               DepositReply reply = DepositReply.newBuilder()
-                .setMessage("The updated balance of the account is " + displayedBalance)
+                .setMessage("The updated balance of the account is €" + displayedBalance)
                 .setEmail(email)
                 .setAccountType(accountType)
                 .setBalance(displayedBalance)
@@ -220,7 +220,7 @@ public class DepositServer {
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             } else {
-              DepositReply reply = DepositReply.newBuilder().setMessage("Invalid login credentials").build();
+              DepositReply reply = DepositReply.newBuilder().setMessage("Invalid Login Credentials").build();
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             }
@@ -229,7 +229,7 @@ public class DepositServer {
 
         } catch (Exception e) {
           System.out.println(e);
-          DepositReply reply = DepositReply.newBuilder().setMessage("An error occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
+          DepositReply reply = DepositReply.newBuilder().setMessage("An Error Occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
           responseObserver.onNext(reply);
           responseObserver.onCompleted();
         }

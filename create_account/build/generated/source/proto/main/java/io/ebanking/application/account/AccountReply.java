@@ -4,9 +4,6 @@
 package io.ebanking.application.account;
 
 /**
- * <pre>
- * The response message containing the greetings
- * </pre>
  *
  * Protobuf type {@code account.AccountReply}
  */
@@ -449,9 +446,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The response message containing the greetings
-   * </pre>
    *
    * Protobuf type {@code account.AccountReply}
    */

@@ -8,9 +8,9 @@ option objc_class_prefix = "HLW";
 
 package deposit;
 
-// The greeting service definition.
+service definition.
 service Deposit {
-  // Sends a greeting
+  
   rpc depositFunds (DepositRequest) returns (DepositReply) {}
 }
 
@@ -22,7 +22,7 @@ message DepositRequest {
   double amount = 4;
 }
 
-// The response message containing the greetings
+// The response message
 message DepositReply {
   string message = 1;
   string email = 2;

@@ -4,9 +4,6 @@
 package io.ebanking.application.deposit;
 
 /**
- * <pre>
- * The response message containing the greetings
- * </pre>
  *
  * Protobuf type {@code deposit.DepositReply}
  */
@@ -478,9 +475,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The response message containing the greetings
-   * </pre>
    *
    * Protobuf type {@code deposit.DepositReply}
    */

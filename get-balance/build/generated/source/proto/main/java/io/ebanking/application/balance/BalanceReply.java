@@ -4,10 +4,6 @@
 package io.ebanking.application.balance;
 
 /**
- * <pre>
- * The response message containing the greetings
- * </pre>
- *
  * Protobuf type {@code balance.BalanceReply}
  */
 public final class BalanceReply extends
@@ -478,9 +474,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The response message containing the greetings
-   * </pre>
    *
    * Protobuf type {@code balance.BalanceReply}
    */

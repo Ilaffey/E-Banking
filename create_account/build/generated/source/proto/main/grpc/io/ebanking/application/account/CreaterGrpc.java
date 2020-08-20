@@ -17,7 +17,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  * <pre>
- * The greeting service definition.
+ * service definition.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -102,7 +102,7 @@ public final class CreaterGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static abstract class CreaterImplBase implements io.grpc.BindableService {
@@ -128,7 +128,7 @@ public final class CreaterGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   *  service definition.
    * </pre>
    */
   public static final class CreaterStub extends io.grpc.stub.AbstractAsyncStub<CreaterStub> {
@@ -153,7 +153,7 @@ public final class CreaterGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static final class CreaterBlockingStub extends io.grpc.stub.AbstractBlockingStub<CreaterBlockingStub> {
@@ -177,7 +177,7 @@ public final class CreaterGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   *  service definition.
    * </pre>
    */
   public static final class CreaterFutureStub extends io.grpc.stub.AbstractFutureStub<CreaterFutureStub> {

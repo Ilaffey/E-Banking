@@ -8,9 +8,9 @@ option objc_class_prefix = "HLW";
 
 package withdraw;
 
-// The greeting service definition.
+// service definition.
 service Withdraw {
-  // Sends a greeting
+  
   rpc withdrawFunds (stream withdrawRequest) returns (withdrawReply) {}
 }
 
@@ -22,7 +22,7 @@ message withdrawRequest {
   double amount = 4;
 }
 
-// The response message containing the greetings
+// The response message 
 message withdrawReply {
   string message = 1;
   string email = 2;

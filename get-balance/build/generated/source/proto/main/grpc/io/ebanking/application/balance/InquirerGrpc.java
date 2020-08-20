@@ -17,7 +17,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  * <pre>
- * The greeting service definition.
+ * service definition.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -107,16 +107,12 @@ public final class InquirerGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static abstract class InquirerImplBase implements io.grpc.BindableService {
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+    
     public void getBalance(io.ebanking.application.balance.BalanceRequest request,
         io.grpc.stub.StreamObserver<io.ebanking.application.balance.BalanceReply> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBalanceMethod(), responseObserver);
@@ -137,7 +133,7 @@ public final class InquirerGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * The ing service definition.
    * </pre>
    */
   public static final class InquirerStub extends io.grpc.stub.AbstractAsyncStub<InquirerStub> {
@@ -152,11 +148,7 @@ public final class InquirerGrpc {
       return new InquirerStub(channel, callOptions);
     }
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+    
     public void getBalance(io.ebanking.application.balance.BalanceRequest request,
         io.grpc.stub.StreamObserver<io.ebanking.application.balance.BalanceReply> responseObserver) {
       asyncServerStreamingCall(
@@ -166,7 +158,7 @@ public final class InquirerGrpc {
 
   /**
    * <pre>
-   * The greeting service definition.
+   * service definition.
    * </pre>
    */
   public static final class InquirerBlockingStub extends io.grpc.stub.AbstractBlockingStub<InquirerBlockingStub> {
@@ -181,11 +173,7 @@ public final class InquirerGrpc {
       return new InquirerBlockingStub(channel, callOptions);
     }
 
-    /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
-     */
+    
     public java.util.Iterator<io.ebanking.application.balance.BalanceReply> getBalance(
         io.ebanking.application.balance.BalanceRequest request) {
       return blockingServerStreamingCall(
@@ -193,11 +181,7 @@ public final class InquirerGrpc {
     }
   }
 
-  /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
-   */
+  
   public static final class InquirerFutureStub extends io.grpc.stub.AbstractFutureStub<InquirerFutureStub> {
     private InquirerFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {

@@ -90,6 +90,7 @@ public class BalanceServer {
     // Create JmDNS instance
     JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
+    // Register service -  Add service listener
     ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "balance", 50071, "path=/");
     jmdns.registerService(serviceInfo);
     jmdns.addServiceListener("_http._tcp.local.", new BalanceListener());
@@ -194,7 +195,7 @@ public class BalanceServer {
             if(rowCount > 0 && password.equals(databasePassword)) {
               double displayedBalance = (((double) balance)/100);
 
-              BalanceReply reply = BalanceReply.newBuilder().setMessage("The Balance of the Account is " + displayedBalance).setEmail(email).setAccountType(accountType).setBalance(displayedBalance).build();
+              BalanceReply reply = BalanceReply.newBuilder().setMessage("The Balance of the Account is €" + displayedBalance).setEmail(email).setAccountType(accountType).setBalance(displayedBalance).build();
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
 
