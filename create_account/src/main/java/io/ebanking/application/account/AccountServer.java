@@ -108,21 +108,21 @@ public class AccountServer {
 
 
       if(email == null || email.equals("")) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify an email address").setEmail(email).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify an Email Address").setEmail(email).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
 
       if(accountType == null || accountType.equals("")) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify an account type").setAccountType(accountType).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify an Sccount Type").setAccountType(accountType).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
 
       if(password == null || password.equals("")) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify a password").setPassword(password).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify a Password").setPassword(password).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -134,21 +134,21 @@ public class AccountServer {
 
       String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$".toLowerCase();
       if(!email.matches(regex) || !validString(email)) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify a valid email address").setEmail(email).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify a Valid Email Address").setEmail(email).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
 
       if(!validString(accountType)) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify a valid account type").setAccountType(accountType).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify a Valid Account Type").setAccountType(accountType).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
       }
       
       if(!validString(password)) {
-        AccountReply reply = AccountReply.newBuilder().setMessage("Please specify a valid password").setPassword(password).build();
+        AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify a Valid Password").setPassword(password).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
         return;
@@ -195,13 +195,13 @@ public class AccountServer {
                   user_id = rs.getInt("user_id");
               }
               databasePassword = password;
-              responseMessage = "A user with an email address of" + email + " has been created";
+              responseMessage = "A User with an Email Address of" + email + " has been created";
             }
 
             if (validAccount && user_id != 0) {
 
               if(!databasePassword.equals(password)) {
-                AccountReply reply = AccountReply.newBuilder().setMessage("Invalid credentials").setEmail(email).setAccountType(accountType).setPassword(password).build();
+                AccountReply reply = AccountReply.newBuilder().setMessage("Invalid Credentials").setEmail(email).setAccountType(accountType).setPassword(password).build();
                 responseObserver.onNext(reply);
                 responseObserver.onCompleted();
                 conn.close();
@@ -213,9 +213,9 @@ public class AccountServer {
               query.setInt(2, user_id);
               query.executeUpdate();
               if(!responseMessage.equals("")) {
-                responseMessage = "A user with an email address of " + email + " with a " + accountType + " account has been created";
+                responseMessage = "A User with an Email Address of " + email + " with a " + accountType + " Account has been created";
               } else {
-                responseMessage = "A " + accountType + " account has been created for " + email;
+                responseMessage = "A " + accountType + " Account has been created for " + email;
               }
             }
             conn.close();
@@ -225,14 +225,14 @@ public class AccountServer {
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             } else {
-              AccountReply reply = AccountReply.newBuilder().setMessage("A " + accountType + " account already exists using the " + email + " email address").setEmail(email).setAccountType(accountType).build();
+              AccountReply reply = AccountReply.newBuilder().setMessage("A " + accountType + " Account already exists using the " + email + " Email Address").setEmail(email).setAccountType(accountType).build();
               responseObserver.onNext(reply);
               responseObserver.onCompleted();
             }
 
           } catch (Exception e) {
             e.printStackTrace();
-            AccountReply reply = AccountReply.newBuilder().setMessage("An error occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
+            AccountReply reply = AccountReply.newBuilder().setMessage("An Error has Occured").setEmail(email).setAccountType(accountType).setPassword(password).build();
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }

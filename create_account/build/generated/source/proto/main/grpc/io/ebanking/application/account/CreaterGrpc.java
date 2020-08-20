@@ -29,7 +29,7 @@ public final class CreaterGrpc {
 
   public static final String SERVICE_NAME = "account.Creater";
 
-  
+  // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<io.ebanking.application.account.AccountRequest,
       io.ebanking.application.account.AccountReply> getCreateAccountMethod;
 
@@ -61,7 +61,7 @@ public final class CreaterGrpc {
     return getCreateAccountMethod;
   }
 
-  
+  // Creates a new async stub that supports all call types for the service
   public static CreaterStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<CreaterStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<CreaterStub>() {
@@ -73,7 +73,7 @@ public final class CreaterGrpc {
     return CreaterStub.newStub(factory, channel);
   }
 
- 
+ //Creates a new blocking-style stub that supports unary and streaming output calls on the service
   public static CreaterBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<CreaterBlockingStub> factory =
@@ -86,7 +86,8 @@ public final class CreaterGrpc {
     return CreaterBlockingStub.newStub(factory, channel);
   }
 
- 
+ //Creates a new ListenableFuture-style stub that supports unary calls on the service
+
   public static CreaterFutureStub newFutureStub(
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<CreaterFutureStub> factory =
@@ -167,8 +168,7 @@ public final class CreaterGrpc {
       return new CreaterBlockingStub(channel, callOptions);
     }
 
-    /**
-     */
+    
     public io.ebanking.application.account.AccountReply createAccount(io.ebanking.application.account.AccountRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateAccountMethod(), getCallOptions(), request);
