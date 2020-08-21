@@ -1,29 +1,22 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
 
 var app = require('../app');
 var debug = require('debug')('withdraw-gui:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * Express port from store.
  */
 
 var portNo = process.env.PORT || '5000'
 var port = normalizePort(portNo);
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
+
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * All network interfaces fro provided ports.
  */
 
 server.listen(port);
@@ -31,14 +24,14 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * port data will be a number, string, or false.
  */
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
+    
     return val;
   }
 
@@ -50,9 +43,7 @@ function normalizePort(val) {
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+
 
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -63,7 +54,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+  // reply with messages when erros occur
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -78,9 +69,7 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+
 
 function onListening() {
   var addr = server.address();

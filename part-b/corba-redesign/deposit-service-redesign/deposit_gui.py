@@ -15,7 +15,7 @@ def withdraw_redirect():
 
 @app.route('/deposit')
 def index():
-    return render_template('index.html', title = 'E-banking Deposit Inquiry Service')
+    return render_template('index.html', title = 'E-banking Deposit Service')
 
 @app.route('/deposit', methods=['POST'])
 def deposit():
@@ -33,9 +33,9 @@ def deposit():
         server_req = server_req._narrow(Deposit.BankingServer)
         server_response = server_req.deposit(email, password, account, amount)
         
-        return render_template('index.html', title = 'E-banking Deposit Inquiry Service', message = server_response)
+        return render_template('index.html', title = 'E-banking Deposit Service', message = server_response)
     except:
-        return render_template('index.html', title = 'E-banking Deposit Inquiry Service', message = "E-banking Deposit Service cannot be accessed")
+        return render_template('index.html', title = 'E-banking Deposit Service', message = "E-banking Deposit Service cannot be accessed")
 
 
 if __name__ == '__main__':
