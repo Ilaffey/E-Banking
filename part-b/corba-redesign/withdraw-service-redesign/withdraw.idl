@@ -1,0 +1,5 @@
+module Withdraw {
+  interface BankingServer {
+    string withdraw(in string email, in string password, in string account, in octet amount);
+  };
+};
