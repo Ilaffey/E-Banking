@@ -5,7 +5,7 @@ Name: Ian Laffey
 
 Create Account
 
-Create Account Dependancies:
+Create Account, Desposit, Get Balance, Withdraw Dependancies:
 1. Java 8
 2. Node (installed with npm)
 3. Bash (to run the start_server.sh)
@@ -22,3 +22,16 @@ To run the project:
 5. use the cd command to change directory into the folder create_account_gui
 6. install the projects dependancies by using the "npm install" command
 7. run the project by running "npm start" command to run the create account gui
+8. Follow steps 1-7 for each other service("desposit", "get-balance" and "withdraw")
+
+Part B
+CORBA & IDL Dependancies:
+1. Python 2
+2. grpc (installed with npm)
+3. flask
+4. CORBA (installed with pip - pip install CORBA)
+5. omniorb(sudo apt-get install python-omniorb)
+6. omniidl(sudo apt-get install-python)
+7. Bash
+
+
