@@ -22,11 +22,11 @@ import javax.jmdns.ServiceInfo;
 import java.net.InetAddress;
 import java.nio.file.Paths;
 
-/**
-https://github.com/grpc/grpc-java/blob/v1.31.1/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java
- * Server that manages startup/shutdown of a server.
-    Service Discovery
- */
+
+//https://github.com/grpc/grpc-java/blob/v1.31.1/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java
+ 
+    //Service Discovery
+ 
 public class DepositServer {
 
   private static class DepositListener implements ServiceListener {
@@ -46,7 +46,7 @@ public class DepositServer {
   private Server server;
 
   private void start() throws IOException {
-    /* The port on which the server should run */
+    // port used by server
     int port = 50081;
     server = ServerBuilder.forPort(port)
         .addService(new DepositImpl())
@@ -55,7 +55,7 @@ public class DepositServer {
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
-        // Use stderr here since the logger may have been reset by its JVM shutdown hook.
+        
         System.err.println(" Shuting Down Server");
         try {
           DepositServer.this.stop();
@@ -73,19 +73,16 @@ public class DepositServer {
     }
   }
 
-  /**
-   * Await termination on the main thread since the grpc library uses daemon threads.
-   */
+  
   private void blockUntilShutdown() throws InterruptedException {
     if (server != null) {
       server.awaitTermination();
     }
   }
 
-  /**
-   * Main launches the server from the command line.
-      Service Registration
-   */
+  
+      //Service Registration - Launch server
+   
   public static void main(String[] args) throws IOException, InterruptedException {
     final DepositServer server = new DepositServer();
     // Create JmDNS instance
@@ -145,7 +142,7 @@ public class DepositServer {
       email = email.toLowerCase();
       accountType = accountType.toLowerCase();
       password = DigestUtils.sha1Hex(password);
-
+        // Needed for credentials
       String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$".toLowerCase();
       if(!email.matches(regex) || !validString(email)) {
         DepositReply reply = DepositReply.newBuilder().setMessage("Please specify a valid email address").setEmail(email).build();

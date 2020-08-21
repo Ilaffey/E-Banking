@@ -40,7 +40,7 @@ router.post('/withdraw', function (req, res, next) {
       try {
         res.render('index', { title: 'E-banking Withdrawal Service', error: response.message });
       } catch (error) {
-        res.render('index', { title: 'E-banking Withdrawal Service', error: "Withdrawal Service is not available at the moment please try again later" });
+        res.render('index', { title: 'E-banking Withdrawal Service', error: "Withdrawal Service cannot be accessed" });
       }
     });
 
@@ -49,7 +49,7 @@ router.post('/withdraw', function (req, res, next) {
 
     call.end();
   } catch (error) {
-    res.render('index', { title: 'E-banking Withdrawal Service', error: "Withdrawal Service is not available at the moment please try again later" });
+    res.render('index', { title: 'E-banking Withdrawal Service', error: "Withdrawal Service cannot be accessed" });
   }
 });
 

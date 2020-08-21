@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/balance', function (req, res, next) {
-  res.render('index', { title: 'E-banking Balance Inquiry Service', error: null });
+  res.render('index', { title: 'E-banking Balance Service', error: null });
 });
 
 router.post('/balance', function (req, res, next) {
@@ -38,23 +38,23 @@ router.post('/balance', function (req, res, next) {
     var call = client.getBalance({ email: email, password: password, account: account });
     call.on('data', function (response) {
       try {
-        res.render('index', { title: 'E-banking Balance Inquiry Service', error: response.message });
+        res.render('index', { title: 'E-banking Balance Service', error: response.message });
       } catch (error) {
-        res.render('index', { title: 'E-banking Balance Inquiry Service', error: "Balance Inquiry Service is not available at the moment please try again later" });
+        res.render('index', { title: 'E-banking Balance Service', error: "Balance Service cannot be accessed" });
       }
     });
     call.on('end', function () {
 
     });
     call.on('error', function (e) {
-      res.render('index', { title: 'E-banking Balance Inquiry Service', error: "Balance Inquiry Service is not available at the moment please try again later" });
+      res.render('index', { title: 'E-banking Balance  Service', error: "Balance Service cannot be accessed" });
     });
     call.on('status', function (status) {
       return
     });
 
   } catch (error) {
-    res.render('index', { title: 'E-banking Balance Inquiry Service', error: "Balance Inquiry Service is not available at the moment please try again later" });
+    res.render('index', { title: 'E-banking Balance Service', error: "Balance Service cannot be accessed" });
   }
 
 });

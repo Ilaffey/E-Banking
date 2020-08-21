@@ -42,7 +42,7 @@ public class AccountServer {
 
   private Server server;
   private void start() throws IOException {
-      /* The port on which the server should run */
+      /* port used by server*/
     int port = 50051;
     server = ServerBuilder.forPort(port)
         .addService(new CreaterImpl())
@@ -51,8 +51,8 @@ public class AccountServer {
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
-        // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-        System.err.println("*** shutting down gRPC server since JVM is shutting down");
+        
+        System.err.println("Shuting Down Server");
         try {
           AccountServer.this.stop();
         } catch (InterruptedException e) {
@@ -68,17 +68,15 @@ public class AccountServer {
       server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
     }
   }
-/**
-   * Await termination on the main thread since the grpc library uses daemon threads.
-   */
+// Server Shutdown
   private void blockUntilShutdown() throws InterruptedException {
     if (server != null) {
       server.awaitTermination();
     }
   }
   /**
-   * Main launches the server from the command line.
-      Service Registration
+   
+      Service Registration - Launch server
    */
   public static void main(String[] args) throws IOException, InterruptedException {
     final AccountServer server = new AccountServer();
@@ -140,7 +138,7 @@ public class AccountServer {
       email = email.toLowerCase();
       accountType = accountType.toLowerCase();
       password = DigestUtils.sha1Hex(password);
-
+      // Needed for credentials
       String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\\.)+[A-Z]{2,6}$".toLowerCase();
       if(!email.matches(regex) || !validString(email)) {
         AccountReply reply = AccountReply.newBuilder().setMessage("Please Specify a Valid Email Address").setEmail(email).build();

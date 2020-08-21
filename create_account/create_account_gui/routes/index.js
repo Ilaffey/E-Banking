@@ -31,13 +31,13 @@ router.post('/', function (req, res, next) {
       try {
         res.render('index', { title: 'E-banking New Account Service', error: response.message });
       } catch (error) {
-        res.render('index', { title: 'E-banking New Account Service', error: "New Account Service is not available at the moment please try again later" });
+        res.render('index', { title: 'E-banking New Account Service', error: "Account Service cannot be accessed" });
   
       }
 
     });
   } catch (error) {
-    res.render('index', { title: 'E-banking New Account Service', error: "New Account Service is not available at the moment please try again later" });
+    res.render('index', { title: 'E-banking New Account Service', error: "Account Service cannot be accessed" });
   }
 
 });
