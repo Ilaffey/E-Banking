@@ -1,0 +1,8 @@
+module Bank {
+  interface BankingServer {
+    string create_account(in string email, in string password, in string account);
+    string get_balance(in string email, in string password, in string account);
+    string deposit(in string email, in string password, in string account, in octet amount);
+    string withdraw(in string email, in string password, in string account, in octet amount);
+  };
+};
