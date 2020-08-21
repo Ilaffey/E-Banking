@@ -85,7 +85,7 @@ public class AccountServer {
     // Create JmDNS instance
     JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
-    // Register service -  Add a service listener
+    // Service Registration -   Add a service listener
     ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "account", 50051, "path=/");
     jmdns.registerService(serviceInfo);
     jmdns.addServiceListener("_http._tcp.local.", new AccountListener());
