@@ -1,0 +1,5 @@
+module Deposit {
+  interface BankingServer {
+    string deposit(in string email, in string password, in string account, in long amount);
+  };
+};
