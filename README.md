@@ -35,3 +35,19 @@ CORBA & IDL Dependancies:
 7. Bash
 
 
+To run the CORBA  create account project:
+1. Open up a new bash shell
+2. use the cd command to change directory into the folder(part-b/corba-redesign/account-service-redesign) where the "run_server.sh" script is and run the script
+3. run the project by running "bash run_server.sh" command to run the create account service
+4. Open up another new bash shell
+5. run the GUI by running "bash run_gui.sh" command
+6. Repeat steps 1-6 for other services, changing folders for each one. e.g balance-service-redesign, deposit-service-resign etc...
+
+To run the IDL project:
+1. Open up a new bash shell
+2. use the cd command to change directory into the folder(part-b/idl-service) where the "compile_idle.sh" script is and install the projects dependancies using the requirements.txt file with pip
+3. Compile the balance.idl by running the "compile_idle.sh" script
+4. run the project by running "bash run_server.sh" command to run the IDL service
+5. Open up another new bash shell
+6. use the cd command to change directory into the folder where the "run_server.sh" script is
+7. run the project by running "bash run_gui.sh" command to run the get balance gui

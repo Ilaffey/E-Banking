@@ -83,11 +83,8 @@ omniORB.registerSkeleton(BankingServer._NP_RepositoryId, BankingServer)
 del BankingServer
 __name__ = "Bank"
 
-#
-# End of module "Bank"
-#
+
 __name__ = "bank_idl"
 
 _exported_modules = ( "Bank", )
 
-# The end.

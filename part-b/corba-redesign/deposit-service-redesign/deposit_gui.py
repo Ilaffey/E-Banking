@@ -35,7 +35,7 @@ def deposit():
         
         return render_template('index.html', title = 'E-banking Deposit Inquiry Service', message = server_response)
     except:
-        return render_template('index.html', title = 'E-banking Deposit Inquiry Service', message = "E-banking Deposit Inquiry Service not available right now please try again later")
+        return render_template('index.html', title = 'E-banking Deposit Inquiry Service', message = "E-banking Deposit Service cannot be accessed")
 
 
 if __name__ == '__main__':

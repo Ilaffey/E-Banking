@@ -11,7 +11,7 @@ def index_redirect():
 
 @app.route('/account')
 def index():
-    return render_template('index.html', title = 'E-banking New Account Inquiry Service')
+    return render_template('index.html', title = 'E-banking New Account Service')
 
 @app.route('/account', methods=['POST'])
 def create_account():
@@ -28,9 +28,9 @@ def create_account():
         server_req = server_req._narrow(Bank.BankingServer)
         server_response = server_req.create_account(email, password, account)
 
-        return render_template('index.html', title = 'E-banking New Account Inquiry Service', message = server_response)
+        return render_template('index.html', title = 'E-banking New Account Service', message = server_response)
     except:
-        return render_template('index.html', title = 'E-banking New Account Inquiry Service', message = "E-banking New Account Inquiry Service not available right now please try again later")
+        return render_template('index.html', title = 'E-banking New Account Service', message = "E-banking New Account Service cannot be accessed")
 
 if __name__ == '__main__':
     app.run(debug=True, port=4999)

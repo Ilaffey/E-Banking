@@ -15,7 +15,7 @@ def withdraw_redirect():
 
 @app.route('/withdraw')
 def index():
-    return render_template('index.html', title = 'E-banking Withdraw Inquiry Service')
+    return render_template('index.html', title = 'E-banking Withdraw Service')
 
 @app.route('/withdraw', methods=['POST'])
 def withdraw():
@@ -33,9 +33,9 @@ def withdraw():
         server_req = server_req._narrow(Withdraw.BankingServer)
         server_response = server_req.withdraw(email, password, account, amount)
         
-        return render_template('index.html', title = 'E-banking Withdraw Inquiry Service', message = server_response)
+        return render_template('index.html', title = 'E-banking Withdraw Service', message = server_response)
     except:
-        return render_template('index.html', title = 'E-banking Withdraw Inquiry Service', message = "E-banking Withdraw Inquiry Service not available right now please try again later")
+        return render_template('index.html', title = 'E-banking Withdraw Service', message = "E-banking Withdraw Service cannot be accessed")
 
 
 if __name__ == '__main__':

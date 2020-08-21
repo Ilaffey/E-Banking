@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request, render_template, url_for, redirect
 import CORBA, Balance
-orb = CORBA.ORB_init(  )
+orb = CORBA.ORB_init()
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def get_balance_redirect():
 
 @app.route('/balance')
 def index():
-    return render_template('index.html', title = 'E-banking Balance Inquiry Service')
+    return render_template('index.html', title = 'E-banking Balance Service')
 
 @app.route('/balance', methods=['POST'])
 def get_balance():
@@ -32,9 +32,9 @@ def get_balance():
         server_req = server_req._narrow(Balance.BankingServer)
         server_response = server_req.get_balance(email, password, account)
         
-        return render_template('index.html', title = 'E-banking Balance Inquiry Service', message = server_response)
+        return render_template('index.html', title = 'E-banking Balance Service', message = server_response)
     except:
-        return render_template('index.html', title = 'E-banking Balance Inquiry Service', message = "E-banking Balance Service cannot be accessed")
+        return render_template('index.html', title = 'E-banking Balance Service', message = "Balance Service cannot be accessed")
 
 
 if __name__ == '__main__':

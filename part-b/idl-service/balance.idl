@@ -1,0 +1,5 @@
+module Balance {
+  interface BankingServer {
+    string get_balance(in string email, in string password, in string account);
+  };
+};
